@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="Chat.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chat.H" />

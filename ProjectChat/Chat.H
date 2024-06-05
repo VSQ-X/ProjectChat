@@ -1,19 +1,28 @@
 #pragma once
 #include "User.h"
-class Chat : public User
-{
+class Chat {
+private:
+	vector<User> users;
+	map<string, User*> userIdent;
+	map<string, string> privateMessages;
+	vector<string> publicMessages;
+	int size, lastPersonNum;
 public:
-	bool logStatus = false; //флажок для 2го свитча в main
-	User* userList = new User[size]; //список пользователей (используется для вывода в функции showListOfUsers)
-	User getValidUser(std::string log, std::string pas); // функция, возвращающая зарегистрированного пользователя()
-	void log(std::string log, std::string pas); //вход в аккаунт 
-	void logout(); //выход из аккаунта 
-	void sendMes(std::string message, User& tmp, std::string dir = "");// функция для отправки сообщений
-	void show(User& tmp, bool flag = false); // функция для отображения сообщений(Есть баг, который я не могу пофиксить, из-за кривой реализации, именно все видят сообщения, которые не должны видеть)
-	void showListOfUsers(); //функция для отобрaжения списка пользователей чата
-protected:
-	User currUser;//переменная для активного пользователя чата;
-	std::string chat; //переменная для общего чата между пользователями
+	void registerUser(string login, string password);
+
+	auto loginUser(string login, string password) -> User*;
+
+	void lsMessage(User* sender, string recipientLogin);
+
+	void broadcastMessage(User* sender, string message);
+
+	void logout(User*& currentUser);
+
+	void showListOfUsers();
+
+	void showLsMessage(string log);
+
+	void showMessageForAll();
+
+	~Chat() {}
 };
-//extern int size; //размер для списка пользователей
-//extern User* userList; //список пользователей
