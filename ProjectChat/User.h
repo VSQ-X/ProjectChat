@@ -1,4 +1,4 @@
-#pragma once
+#pragma once //класс для идентификации пользователей
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,6 +19,7 @@ public:
 	{
 		return this->login;
 	}
+	~User() {}
 protected:
 	string login;
 	string password;

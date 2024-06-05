@@ -1,9 +1,9 @@
 ﻿#include "Chat.h"
 int main() {
-	Chat chat;
-	User* currentUser = nullptr;
+	Chat chat;//сам чат
+	User* currentUser = nullptr;//указатель для идентификации пользователя, использующего чат в данный момент
 	int option = 1;
-	while (option) {
+	while (option) {//реализация взаимодействия пользователя с чатом с помощью switch case
 		cout << "WARNING!!! YOU CAN'T USE MORE THAN 60 SYMBOLS IN LOGIN, PASSWORD OR NAME!!!!\n";
 		cout << "1. Register" << endl;
 		cout << "2. Login" << endl;
@@ -129,6 +129,9 @@ int main() {
 		case 9: {
 			option = 0;
 			cout << "Goodbye!";
+			if (currentUser != nullptr) {
+				delete currentUser;
+			}
 			break;
 		}
 

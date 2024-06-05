@@ -1,5 +1,5 @@
 #include "Chat.h"
-void Chat::registerUser(string login, string password) {
+void Chat::registerUser(string login, string password) {//регистрация по логину и паролю + обработка ошибок
 	for (User& user : users)
 	{
 		if (user.getLogin() == login)
@@ -13,17 +13,17 @@ void Chat::registerUser(string login, string password) {
 	}
 	User* user = new User(login, password);
 	users.push_back(*user);
-	userIdent[login] = user;
+	userIdent[login] = user;//мак для идентификации пользователя
 }
-auto Chat::loginUser(string login, string password) -> User* {
+auto Chat::loginUser(string login, string password) -> User* {//вход 
 	if (userIdent.find(login) != userIdent.end() && userIdent[login]->getPassword() == password) {
 		return userIdent[login];
 	}
 	return nullptr;
 }
 
-void Chat::lsMessage(User* sender, string recipientLogin) {
-	if (userIdent.find(recipientLogin) != userIdent.end()) {
+void Chat::lsMessage(User* sender, string recipientLogin) {//личные сообщения
+	if (userIdent.find(recipientLogin) != userIdent.end()) {//реализация путем поиска в мапе ключа(логина) пользователя
 		string message;
 		cout << "Enter message: ";
 		cin >> message;
@@ -36,7 +36,7 @@ void Chat::lsMessage(User* sender, string recipientLogin) {
 	}
 }
 
-void Chat::broadcastMessage(User* sender, string message) {
+void Chat::broadcastMessage(User* sender, string message) {//сообщение в общий чат 
 	for (auto& user : users) {
 		if (user.getLogin() == sender->getLogin()) {
 			publicMessages.push_back(message);
@@ -45,7 +45,7 @@ void Chat::broadcastMessage(User* sender, string message) {
 	}
 }
 
-void Chat::logout(User*& currentUser)
+void Chat::logout(User*& currentUser)//выход из аккаунта
 {
 	if (currentUser != nullptr) {
 		cout << "you have logged out of your account\n";
@@ -56,13 +56,13 @@ void Chat::logout(User*& currentUser)
 	}
 }
 
-void Chat::showListOfUsers() {
+void Chat::showListOfUsers() {//вывод всех зарегистрированных пользователей чата
 	for (auto& user : users) {
 		cout << "Login: " << user.getLogin() <<endl;
 	}
 }
 
-void Chat::showLsMessage(string log) {
+void Chat::showLsMessage(string log) {//вывод личных сообщений
 	if (privateMessages.empty()||privateMessages.find(log)==privateMessages.end()) {
 		cout << "No messages yet." << endl;
 	}
@@ -74,7 +74,7 @@ void Chat::showLsMessage(string log) {
 	}
 }
 
-void Chat::showMessageForAll() {
+void Chat::showMessageForAll() {//вывод общего чата
 	if (publicMessages.empty()) {
 		cout << "No messages yet." << endl;
 	}
