@@ -132,6 +132,7 @@ int main() {
 			if (currentUser != nullptr) {
 				delete currentUser;
 			}
+			chat.end();
 			break;
 		}
 

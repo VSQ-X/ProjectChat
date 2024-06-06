@@ -85,3 +85,10 @@ void Chat::showMessageForAll() {//вывод общего чата
 		}
 	}
 }
+void Chat::end()
+{
+	for (auto& user : userIdent)
+	{
+		delete user.second;
+	}
+}
