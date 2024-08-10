@@ -1,4 +1,4 @@
-#pragma once //класс для идентификации пользователей
+#pragma once //user class
 #include <iostream>
 #include <string>
 #include <vector>

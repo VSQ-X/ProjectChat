@@ -1,5 +1,4 @@
-#include "Chat.h"
-#include "User.h"
+#include "Chat.h"//подключение заголовочного файла
 int main() {
 	Chat chat;//сам чат
 	locale::global(locale(""));
