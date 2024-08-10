@@ -23,7 +23,7 @@ auto Chat::loginUser(string login, string password) -> User* {//вход
 }
 Chat::~Chat() {}
 Chat::Chat() {
-	locale::global(locale(""));//локализация файла
+	setlocale(LC_ALL, "Russian");//локализация файла
 }
 void Chat::lsMessage(User* sender, string recipientLogin) {//личные сообщения
 	if (userIdent.find(recipientLogin) != userIdent.end()) {//реализация путем поиска в мапе ключа(логина) пользователя
