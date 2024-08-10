@@ -8,6 +8,7 @@ private:
 	vector<string> publicMessages; // вектор лля хранения сообщений для общего чата.
 public:
 	//реализация функционала чата
+
 	void registerUser(string login, string password);//регистрация пользоватея
 
 	auto loginUser(string login, string password) -> User*;//вход пользователя
@@ -26,4 +27,7 @@ public:
 
 	void end();//функция для очищения памяти после завершения программы
 	~Chat();
+	Chat() {
+		locale::global(locale(""));//локализация файла
+	}
 };
