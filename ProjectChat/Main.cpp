@@ -1,7 +1,7 @@
 #include "Chat.h"
+#include "User.h"
 int main() {
 	Chat chat;//сам чат
-	//setlocale(LC_ALL, "");
 	locale::global(locale(""));
 	User* currentUser = nullptr;//указатель для идентификации пользователя, использующего чат в данный момент
 	int option = 1;
