@@ -88,7 +88,7 @@ void Chat::showMessageForAll() {//output all chat
 }
 void Chat::end()//deleting pointers
 {
-	for (auto& user : userIdent)
+	for (auto& user : userIdent)//removal cycle
 	{
 		delete user.second;
 	}
