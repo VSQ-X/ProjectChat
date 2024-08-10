@@ -1,8 +1,8 @@
 #include "Chat.h"
 int main() {
 	Chat chat;//сам чат
-	setlocale(LC_ALL, "");
-	//locale::global(locale(""));
+	//setlocale(LC_ALL, "");
+	locale::global(locale(""));
 	User* currentUser = nullptr;//указатель для идентификации пользователя, использующего чат в данный момент
 	int option = 1;
 	while (option) {//реализация взаимодействия пользователя с чатом с помощью switch case
