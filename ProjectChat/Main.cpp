@@ -1,4 +1,4 @@
-﻿#include "Chat.h"
+#include "Chat.h"
 int main() {
 	Chat chat;//сам чат
 	User* currentUser = nullptr;//указатель для идентификации пользователя, использующего чат в данный момент
@@ -129,9 +129,6 @@ int main() {
 		case 9: {
 			option = 0;
 			cout << "Goodbye!";
-			if (currentUser != nullptr) {
-				delete currentUser;
-			}
 			chat.end();
 			break;
 		}

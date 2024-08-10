@@ -21,6 +21,7 @@ auto Chat::loginUser(string login, string password) -> User* {//вход
 	}
 	return nullptr;
 }
+Chat::~Chat() {}
 
 void Chat::lsMessage(User* sender, string recipientLogin) {//личные сообщения
 	if (userIdent.find(recipientLogin) != userIdent.end()) {//реализация путем поиска в мапе ключа(логина) пользователя
@@ -85,7 +86,7 @@ void Chat::showMessageForAll() {//вывод общего чата
 		}
 	}
 }
-void Chat::end()
+void Chat::end()//удаление указателей
 {
 	for (auto& user : userIdent)
 	{
