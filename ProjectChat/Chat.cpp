@@ -1,4 +1,4 @@
-#include "Chat.h"
+#include "Chat.h"//подключение заголовочного файла
 void Chat::registerUser(string login, string password) {//регистрация по логину и паролю + обработка ошибок
 	for (User& user : users)
 	{
