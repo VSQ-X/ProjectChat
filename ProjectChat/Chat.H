@@ -1,4 +1,4 @@
-#pragma once//класс непосредственно дл€ реализации самого чата
+//класс непосредственно дл€ реализации самого чата
 #include "User.h"
 class Chat {
 private:
@@ -24,6 +24,7 @@ public:
 	void showLsMessage(string log);//показывает личные сообщени€ 
 
 	void showMessageForAll();//показывает сообщени€ в общем чате
+	void tcpCommunication();
 
 	void end();//функци€ дл€ очищени€ пам€ти после завершени€ программы
 	~Chat();

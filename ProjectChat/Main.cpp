@@ -1,4 +1,4 @@
-#include "Chat.h"//подключение заголовочного файла
+#include "Chat.H"//подключение заголовочного файла
 int main() {
 	Chat chat;//сам чат
 	locale::global(locale(""));
@@ -15,6 +15,7 @@ int main() {
 		cout << "7. Show private messages" << endl;
 		cout << "8. Show messages for all" << endl;
 		cout << "9. Exit" << endl;
+		cout << "10. TCP chat function" << endl; 
 		cout << "Choose 1 of the options " << endl;
 		int choice;
 		cin >> choice;
@@ -133,6 +134,19 @@ int main() {
 			chat.end();
 			break;
 		}
+		case 10: {
+			if(currentUser != nullptr)
+			{
+				cout <<"You need write 'end' to finish the server connection\n";
+				chat.tcpCommunication();
+		       		break;
+			}
+		 else
+		 {
+			cout<<"You aren't logged in\n";
+		        break;	
+		 }		 
+		 }
 
 		default: {
 			cout << "Invalid choice!" << endl;

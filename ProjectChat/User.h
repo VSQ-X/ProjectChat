@@ -1,8 +1,14 @@
-#pragma once //user class
+//user class
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <vector>
 #include <map>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#define MESSAGE_LENGTH 500
+#define PORT 8000
 using namespace std;
 class User {
 public:
